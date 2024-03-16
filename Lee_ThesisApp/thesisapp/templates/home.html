@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Your Bootstrap-styled content goes here -->
+<div class="container">
+    <div class="main-detail">
+        <h1>{{ detail }}</h1>
+        <p><strong>Published:</strong> {{ detail.published }}</p>
+        <p><strong>Status:</strong> {{ detail.get_status_display }}</p>
+        <p><strong>Adviser:</strong> {{ detail.adviser }}</p>
+    </div>
+    <hr />
+    <div class="authors">
+        <h4>Authors</h4>
+        <ul class="list-group">
+            {% for author in authors %}
+            <li class="list-group-item">{{ author }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="panelists">
+        <h4>Panelists</h4>
+        <ul class="list-group">
+            {% for panelist in panelists %}
+            <li class="list-group-item">{{ panelist }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <hr />
+    <div class="abstract">
+        <h4>Abstract</h4>
+        <p>{{ detail.abstract }}</p>
+    </div>
+</div>
+{% endblock %}
